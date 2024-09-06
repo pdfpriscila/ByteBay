@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockManage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <header>
+        <nav>
+            <div id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="navMenu">
+                <img src="img/bytebay-remove.png" alt="logo" width="40px" height="40px">
+                <li><a href="#" id="inicioLink">Inicio</a></li>
+                <li><a href="#" id="gestionProduccionLink">Gestión de Producción</a></li>
+                <li><a href="#" id="gestionMateriasPrimasLink">Gestión de Materias Primas</a></li>
+                <li><a href="#" id="gestionPersonalLink">Gestión de Personal</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Page Content -->
+    <section id="homeContent">
+        <h1>Bienvenido a StockManage</h1>
+        <button id="toggleContentBtn">Mostrar más</button>
+        <div id="extraContent" style="display: none;">
+            <h3>Producción Reciente</h3>
+            <table id="extraProduccionTable">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Tamaño</th>
+                        <th>Empleado</th> <!-- Cambio solicitado: Agregar columna de empleado -->
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Datos de producción se añadirán aquí -->
+                </tbody>
+            </table>
+
+            <h3>Inventario de Materias Primas</h3>
+            <table id="extraMateriasPrimasTable">
+                <thead>
+                    <tr>
+                        <th>Materia Prima</th>
+                        <th>Tipo</th>
+                        <th>Cantidad</th>
+                        <th>Proveedor</th> <!-- Cambio solicitado: Cambiar a proveedor -->
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Datos de materias primas se añadirán aquí -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Gestión de Producción -->
+    <section id="gestionProduccion" style="display: none;">
+        <h2>Gestión de Producción</h2>
+        <form id="produccionForm">
+            <input type="text" id="producto" placeholder="Producto" required>
+            <input type="number" id="cantidad" placeholder="Cantidad" min="1"  required>
+            <input type="text" id="tamaño" placeholder="Tamaño" required>
+            <input type="text" id="empleado" placeholder="Empleado" required> 
+            <button type="submit">Añadir Producción</button>
+        </form>
+        <table id="produccionTable">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Tamaño</th>
+                    <th>Empleado</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Producción se añadirá aquí -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Gestión de Materias Primas -->
+    <section id="gestionMateriasPrimas" style="display: none;">
+        <h2>Gestión de Materias Primas</h2>
+        <form id="materiasPrimasForm">
+            <input type="text" id="materiaPrima" placeholder="Materia Prima" required>
+            <input type="text" id="tipo" placeholder="Tipo" required>
+            <input type="number" id="cantidadMP" placeholder="Cantidad" required>
+            <input type="text" id="proveedor" placeholder="Proveedor" required>
+            <button type="submit">Añadir Materia Prima</button>
+        </form>
+        <table id="materiasPrimasTable">
+            <thead>
+                <tr>
+                    <th>Materia Prima</th>
+                    <th>Tipo</th>
+                    <th>Cantidad</th>
+                    <th>Proveedor</th> 
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Materias primas se añadirán aquí -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Gestión de Personal -->
+    <section id="gestionPersonal" style="display: none;">
+        <h2>Gestión de Personal</h2>
+        <form id="personalForm">
+            <input type="text" id="nombre" placeholder="Nombre" required>
+            <input type="text" id="puesto" placeholder="Puesto" required>
+            <input type="text" id="horario" placeholder="Horario" required>
+            <button type="submit">Añadir Personal</button>
+        </form>
+        <table id="personalTable">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Puesto</th>
+                    <th>Horario</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Personal se añadirá aquí -->
+            </tbody>
+        </table>
+    </section>
+    <footer>
+        <p>&copy; 2024 ByteBay. Todos los derechos reservados.</p>
+    </footer>    
+    <script src="main.js"></script>
+</body>
+</html>

@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function() {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: `producto=${encodeURIComponent(producto)}&cantidad=${encodeURIComponent(cantidad)}&cantidadDf=${encodeURIComponent(cantidadDf)}&tamaño=${encodeURIComponent(tamaño)}&empleado=${encodeURIComponent(empleado)}`
+            body: `producto=${encodeURIComponent(producto)}&cantidad=${encodeURIComponent(cantidad)}&cantidadDf=${encodeURIComponent(cantidadDf)}&cantidadEf=${encodeURIComponent(cantidadEf)}&tamaño=${encodeURIComponent(tamaño)}&empleado=${encodeURIComponent(empleado)}&ci=${encodeURIComponent(ci)}&codigoMaquina=${encodeURIComponent(codigoMaquina)}`
         })
         .then(response => response.text())
         .then(data => {
@@ -234,7 +234,7 @@ document.addEventListener("DOMContentLoaded", function() {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: `nombre=${encodeURIComponent(nombre)}&puesto=${encodeURIComponent(puesto)}&horario=${encodeURIComponent(horario)}`
+            body: `nombre=${encodeURIComponent(nombre)}&puesto=${encodeURIComponent(puesto)}&rol=${encodeURIComponent}&telefono=${encodeURIComponent}&estado=${encodeURIComponent}&horario=${encodeURIComponent(horario)}`
         })
         .then(response => response.text())
         .then(data => {
@@ -274,3 +274,5 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+//ultima version

@@ -36,8 +36,12 @@
                     <tr>
                         <th>Producto</th>
                         <th>Cantidad</th>
+                        <th>Cantidad Defectuosa</th>
+                        <th>Cantidad Efectiva</th>
                         <th>Tamaño</th>
-                        <th>Empleado</th> <!-- Cambio solicitado: Agregar columna de empleado -->
+                        <th>Empleado</th>
+                        <th>CI</th>
+                        <th>Código Máquina</th>
                         <th>Fecha</th>
                     </tr>
                 </thead>
@@ -53,7 +57,7 @@
                         <th>Materia Prima</th>
                         <th>Tipo</th>
                         <th>Cantidad</th>
-                        <th>Proveedor</th> <!-- Cambio solicitado: Cambiar a proveedor -->
+                        <th>Proveedor</th>
                         <th>Fecha</th>
                     </tr>
                 </thead>
@@ -70,8 +74,12 @@
         <form id="produccionForm">
             <input type="text" id="producto" placeholder="Producto" required>
             <input type="number" id="cantidad" placeholder="Cantidad" min="1"  required>
+            <input type="number" id="cantidadDf" placeholder="Cantidad Defectuosa" min="0" required>
+            <input type="number" id="cantidadEf" placeholder="Cantidad Efectiva" min="1" required>
             <input type="text" id="tamaño" placeholder="Tamaño" required>
-            <input type="text" id="empleado" placeholder="Empleado" required> 
+            <input type="text" id="empleado" placeholder="Empleado" required>
+            <input type="text" id="ci" placeholder="CI (sin puntos ni guiones)" pattern="[0-9]{8}" title="8 dígitos sin puntos ni guiones" required>
+            <input type="text" id="codigoMaquina" placeholder="Código de Máquina" required>
             <button type="submit">Añadir Producción</button>
         </form>
         <table id="produccionTable">
@@ -79,8 +87,12 @@
                 <tr>
                     <th>Producto</th>
                     <th>Cantidad</th>
+                    <th>Cantidad Defectuosa</th>
+                    <th>Cantidad Efectiva</th>
                     <th>Tamaño</th>
                     <th>Empleado</th>
+                    <th>CI</th>
+                    <th>Código Máquina</th>
                     <th>Fecha</th>
                 </tr>
             </thead>
@@ -106,7 +118,7 @@
                     <th>Materia Prima</th>
                     <th>Tipo</th>
                     <th>Cantidad</th>
-                    <th>Proveedor</th> 
+                    <th>Proveedor</th>
                     <th>Fecha</th>
                 </tr>
             </thead>
@@ -122,6 +134,9 @@
         <form id="personalForm">
             <input type="text" id="nombre" placeholder="Nombre" required>
             <input type="text" id="puesto" placeholder="Puesto" required>
+            <input type="text" id="rol" placeholder="Rol" required>
+            <input type="number" id="telefono" placeholder="Teléfono" required>
+            <input type="text" id="estado" placeholder="Estado" required>
             <input type="text" id="horario" placeholder="Horario" required>
             <button type="submit">Añadir Personal</button>
         </form>
@@ -130,6 +145,9 @@
                 <tr>
                     <th>Nombre</th>
                     <th>Puesto</th>
+                    <th>Rol</th>
+                    <th>Teléfono</th>
+                    <th>Estado</th>
                     <th>Horario</th>
                     <th>Fecha</th>
                 </tr>

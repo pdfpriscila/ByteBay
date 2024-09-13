@@ -107,8 +107,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const producto = document.getElementById("producto").value;
         const cantidad = document.getElementById("cantidad").value;
+        const cantidadDf = document.getElementById("cantidadDf").value;
+        const cantidadEf = document.getElementById("cantidadEf").value;
         const tamaño = document.getElementById("tamaño").value;
         const empleado = document.getElementById("empleado").value;
+        const ci = document.getElementById("ci").value;
+        const codigoMaquina = document.getElementById("codigoMaquina").value;
         const fecha = new Date().toLocaleString(); // Obtiene la fecha y hora actual en formato legible
 
         fetch('guardar_produccion.php', {
@@ -116,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function() {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: `producto=${encodeURIComponent(producto)}&cantidad=${encodeURIComponent(cantidad)}&tamaño=${encodeURIComponent(tamaño)}&empleado=${encodeURIComponent(empleado)}`
+            body: `producto=${encodeURIComponent(producto)}&cantidad=${encodeURIComponent(cantidad)}&cantidadDf=${encodeURIComponent(cantidadDf)}&tamaño=${encodeURIComponent(tamaño)}&empleado=${encodeURIComponent(empleado)}`
         })
         .then(response => response.text())
         .then(data => {
@@ -127,8 +131,12 @@ document.addEventListener("DOMContentLoaded", function() {
             nuevaFilaPrincipal.innerHTML = `
                 <td>${producto}</td>
                 <td>${cantidad}</td>
+                <td>${cantidadDf}</td>
+                <td>${cantidadEf}</td>
                 <td>${tamaño}</td>
                 <td>${empleado}</td>
+                <td>${ci}</td>
+                <td>${codigoMaquina}</td>
                 <td>${fecha}</td>
             `;
             document.querySelector("#extraProduccionTable tbody").appendChild(nuevaFilaPrincipal);
@@ -138,8 +146,12 @@ document.addEventListener("DOMContentLoaded", function() {
             nuevaFilaSeccion.innerHTML = `
                 <td>${producto}</td>
                 <td>${cantidad}</td>
+                <td>${cantidadDf}</td>
+                <td>${cantidadEf}</td>
                 <td>${tamaño}</td>
                 <td>${empleado}</td>
+                <td>${ci}</td>
+                <td>${codigoMaquina}</td>
                 <td>${fecha}</td>
             `;
             document.querySelector("#produccionTable tbody").appendChild(nuevaFilaSeccion);
@@ -211,6 +223,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const nombre = document.getElementById("nombre").value;
         const puesto = document.getElementById("puesto").value;
+        const rol = document.getElementById("rol").value;
+        const telefono = document.getElementById("telefono").value;
+        const estado = document.getElementById("estado").value;
         const horario = document.getElementById("horario").value;
         const fecha = new Date().toLocaleString(); // Obtiene la fecha y hora actual en formato legible
 
@@ -230,6 +245,9 @@ document.addEventListener("DOMContentLoaded", function() {
             nuevaFila.innerHTML = `
                 <td>${nombre}</td>
                 <td>${puesto}</td>
+                <td>${rol}</td>
+                <td>${telefono}</td>
+                <td>${estado}</td>
                 <td>${horario}</td>
                 <td>${fecha}</td>
             `;

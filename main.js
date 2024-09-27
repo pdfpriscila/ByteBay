@@ -60,21 +60,17 @@ document.addEventListener("DOMContentLoaded", function() {
     const inicioLink = document.getElementById("inicioLink");
     const gestionProduccionLink = document.getElementById("gestionProduccionLink");
     const gestionMateriasPrimasLink = document.getElementById("gestionMateriasPrimasLink");
-    const gestionPersonalLink = document.getElementById("gestionPersonalLink");
 
     // Referencias a las secciones
     const homeContent = document.getElementById("homeContent");
     const gestionProduccion = document.getElementById("gestionProduccion");
     const gestionMateriasPrimas = document.getElementById("gestionMateriasPrimas");
-    const gestionPersonal = document.getElementById("gestionPersonal");
 
     // Función para mostrar una sección y ocultar las demás
     function mostrarSeccion(seccion) {
         homeContent.style.display = "none";
         gestionProduccion.style.display = "none";
-        gestionMateriasPrimas.style.display = "none";
-        gestionPersonal.style.display = "none";
-        
+        gestionMateriasPrimas.style.display = "none";        
         seccion.style.display = "block";
     }
 
@@ -92,11 +88,6 @@ document.addEventListener("DOMContentLoaded", function() {
     gestionMateriasPrimasLink.addEventListener("click", function(e) {
         e.preventDefault();
         mostrarSeccion(gestionMateriasPrimas);
-    });
-
-    gestionPersonalLink.addEventListener("click", function(e) {
-        e.preventDefault();
-        mostrarSeccion(gestionPersonal);
     });
 
     // Gestión de Producción
@@ -213,51 +204,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
         materiasPrimasForm.reset(); // Reinicia el formulario
-    });
-
-    // Gestión de Personal
-    const personalForm = document.getElementById("personalForm");
-
-    personalForm.addEventListener("submit", function(e) {
-        e.preventDefault(); // Previene el envío del formulario
-
-        const nombre = document.getElementById("nombre").value;
-        const puesto = document.getElementById("puesto").value;
-        const rol = document.getElementById("rol").value;
-        const telefono = document.getElementById("telefono").value;
-        const estado = document.getElementById("estado").value;
-        const horario = document.getElementById("horario").value;
-        const fecha = new Date().toLocaleString(); // Obtiene la fecha y hora actual en formato legible
-
-        fetch('guardar_personal.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `nombre=${encodeURIComponent(nombre)}&puesto=${encodeURIComponent(puesto)}&rol=${encodeURIComponent}&telefono=${encodeURIComponent}&estado=${encodeURIComponent}&horario=${encodeURIComponent(horario)}`
-        })
-        .then(response => response.text())
-        .then(data => {
-            console.log(data); // Muestra el mensaje de respuesta del servidor en la consola
-            
-            // Añadir nueva fila a la tabla en la sección de gestión de personal
-            const nuevaFila = document.createElement("tr");
-            nuevaFila.innerHTML = `
-                <td>${nombre}</td>
-                <td>${puesto}</td>
-                <td>${rol}</td>
-                <td>${telefono}</td>
-                <td>${estado}</td>
-                <td>${horario}</td>
-                <td>${fecha}</td>
-            `;
-            document.querySelector("#personalTable tbody").appendChild(nuevaFila);
-        })
-        .catch(error => {
-            console.error('Error al guardar los datos:', error);
-        });
-
-        personalForm.reset(); // Reinicia el formulario
     });
 
     // Mostrar más en la sección de Inicio (extraContent)

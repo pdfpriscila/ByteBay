@@ -1,56 +1,97 @@
-/* General y estilos de base */
+/* Variables CSS: Definición de colores y fuentes */
+:root {
+    --main-color: #3d5a6c;
+    --secondary-color: #2b4355;
+    --background-color: #f1f3f4;
+    --text-color: #333333;
+    --font-family: 'Roboto', Arial, sans-serif;
+}
+
+/* Estilos generales para el cuerpo */
 body {
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: var(--font-family);
     margin: 0;
     padding: 0;
-    color: #333333;
-    background-color: #f1f3f4;
+    color: var(--text-color);
+    background-color: var(--background-color);
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Estilos del contenedor principal */
+main {
+    max-width: 1200px;
+    margin: 2em auto;
+    padding: 1em;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
 }
 
 /* Estilos para el encabezado */
 header {
-    background-color: #3d5a6c;
+    background-color: var(--main-color);
     color: white;
     padding: 1em 0;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Estilos para la barra de navegación */
 nav {
-    background-color: #3d5a6c;
+    background-color: var(--main-color);
     color: white;
-    padding: 0.5em 0;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    padding: 1em 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Contenedor para centrar el contenido dentro del nav */
-nav .nav-container {
+/* Contenedor para el logo */
+nav .logo-container {
     display: flex;
-    align-items: center;
     justify-content: center;
-    width: 100%;
+    align-items: center;
+    position: relative; /* Permite posicionar el círculo detrás del logo */
+    padding: 1em;
+}
+
+/* Círculo detrás del logo para efecto visual */
+nav .logo-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 50%; 
+    box-shadow: 0 6px 30px rgba(255, 255, 255, 1);
+    z-index: -1; 
 }
 
 /* Estilos para la imagen del logo */
 nav img {
-    width: 50px; /* Ajustar tamaño de la imagen */
-    height: auto; /* Mantener proporción */
-    border-radius: 50%; /* Añadir borde redondeado */
-    background-color: rgb(250, 250, 255); /* Fondo blanco para resaltar más */
-    padding: 5px; /* Añadir padding */
-    margin: auto;/* Espacio a la derecha del logo */
-    box-shadow: 0 0 15px rgba(41, 137, 197, 1.5); /* Sombra circular degradada detrás del logo */
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.9);
+    transition: transform 0.3s ease; /* Efecto de escalado al pasar el mouse */
 }
 
-/* Estilos para el menú de navegación */
+/* Efecto hover en la imagen del logo */
+nav img:hover {
+    transform: scale(1.1); 
+}
+
+/* Estilos del menú de navegación */
 nav ul {
     list-style: none;
     display: flex;
@@ -58,39 +99,32 @@ nav ul {
     gap: 1em;
     margin: 0;
     padding: 0;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
 }
 
 nav ul li {
     margin: 0;
 }
 
+/* Estilos para los enlaces del menú */
 nav ul li a {
     display: block;
     color: white;
     text-decoration: none;
     padding: 0.8em 1.5em;
-    transition: background-color 0.3s ease, transform 0.2s ease; 
-    border-radius: 8px; 
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 8px;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 0.9em;
 }
 
+/* Efecto hover en los enlaces del menú */
 nav ul li a:hover {
-    background-color: #2b4355;
+    background-color: var(--secondary-color);
 }
 
-/* Estilos para el contenido principal */
-main {
-    max-width: 1200px;
-    margin: 2em auto;
-    padding: 1em;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-}
-
+/* Estilos para encabezados */
 h1, h2, h3, h4, h5, h6 {
     margin-left: 2%;
     margin-right: 2%;
@@ -98,7 +132,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Estilos para el botón "Mostrar más" */
 #toggleContentBtn {
-    background-color: #3d5a6c;
+    background-color: var(--main-color);
     color: white;
     border: none;
     padding: 0.8em 1.5em;
@@ -110,37 +144,38 @@ h1, h2, h3, h4, h5, h6 {
     width: 96%;
 }
 
+/* Efecto hover en el botón "Mostrar más" */
 #toggleContentBtn:hover {
-    background-color: #2b4355;
+    background-color: var(--secondary-color);
 }
 
 /* Estilos para el pie de página */
 footer {
-    background-color: #3d5a6c;
+    background-color: var(--main-color);
     color: white;
     text-align: center;
     padding: 1em 0;
-    margin-top: 2em;
-    border-top: 1px solid #dddddd; 
+    margin-top: auto;
+    border-top: 1px solid #dddddd;
+    width: 100%;
 }
 
 /* Estilos para formularios */
 form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 2em;
-    margin-left: 2%;
-    margin-right: 2%;
+    width: 98%; /* Ajusta ancho para campos más largos */
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-form label {
-    display: block;
-    margin-bottom: 0.5em;
-    color: #555555;
-    font-weight: bold;
-}
-
+/* Estilos para los campos de formulario */
 form input,
 form button {
-    width: 96%; /* Ajuste de ancho para evitar llegar al borde */
+    width: 100%; 
     padding: 0.8em;
     margin-bottom: 1em;
     border: 1px solid #dddddd;
@@ -149,8 +184,9 @@ form button {
     font-size: 1em;
 }
 
+/* Estilos para el botón dentro del formulario */
 form button {
-    background-color: #3d5a6c;
+    background-color: var(--main-color);
     color: white;
     border: none;
     cursor: pointer;
@@ -158,135 +194,96 @@ form button {
     transition: background-color 0.3s ease;
 }
 
+/* Efecto hover en el botón del formulario */
 form button:hover {
-    background-color: #2b4355;
+    background-color: var(--secondary-color);
 }
 
+/* Estilos para grupos de inputs */
+.form-row {
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 1em; 
+    width: 100%; 
+}
+
+/* Estilos para cada grupo de input */
+.input-group {
+    flex: 1; 
+    margin-right: 1em; 
+}
+
+/* Elimina margen derecho en el último input */
+.input-group:last-child {
+    margin-right: 0; 
+}
+
+/* Estilos para inputs en grupos */
+.input-group input {
+    width: 100%; 
+    padding: 0.9em; 
+    border: 1px solid #dddddd; 
+    border-radius: 8px; 
+    box-sizing: border-box; 
+}
 
 /* Estilos para tablas */
 .table-container {
     width: 100%;
+    max-width: 800px; 
     margin: 0 auto 2em auto;
-    overflow-x: auto; /* Temporalmente para visualizar el scroll */
-  }
-  
-  table {
+    overflow-x: auto;
+}
+
+/* Estilos para la tabla */
+table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Nuevo estilo para tablas responsivas */
-  @media (max-width: 768px) {
-    table {
-      font-size: 0.8em; /* Reduce el tamaño de fuente */
-    }
-  
-    table th, table td {
-      padding: 0.5em; /* Reduce el padding */
-    }
-  }
-  
-  @media (max-width: 480px) {
-    table {
-      font-size: 0.7em;
-    }
-  
-    table th, table td {
-      padding: 0.3em;
-    }
-  }
-  
-table,
-th,
-td {
-    border: 1px solid #dddddd;
-    padding: 1em;
-    text-align: left;
 }
 
+table, th, td {
+    border: 1px solid #dddddd;
+    padding: 0.6em; 
+    text-align: center;
+    font-family: var(--font-family); 
+    font-size: 1.0em; 
+    font-weight: 300; 
+}
+
+/* Estilos para el encabezado de la tabla */
 thead {
-    background-color: #240fa9; 
+    background-color: #240fa9;
     color: white;
-    font-weight: bold;
+    font-weight: 500; 
     text-transform: uppercase;
 }
 
-/* Media Queries */
+/* Evita espacio entre celdas */
+td, th {
+    border-spacing: 0; 
+}
+
+tr {
+    border: none; 
+}
+
+/* Estilos para dispositivos móviles */
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin-bottom: 0.5em;
-        width: 100%; 
-        text-align: center; 
-    }
-
-    nav ul li a {
-        display: block;
-        padding: 0.8em 1em;
-    }
-
-    nav ul li a {
-        transition: background-color 0.3s ease, transform 0.2s ease, color 0.2s ease;
-    }
-
-    nav ul li a:hover {
-        background-color: #2b4355;
-        transform: translateY(-3px); 
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        margin-left: 4%;
-        margin-right: 4%;
     }
 
     form {
-        margin-left: 4%;
-        margin-right: 4%;
-    }
-
-    #toggleContentBtn {
-        margin-left: 4%;
-        margin-right: 4%;
-        width: 92%;
-    }
-
-    .table-container {
-        width: 92%;
-        margin-left: 4%;
-        margin-right: 4%;
+        width: 95%;
+        padding: 0 1em;
     }
 }
 
 @media (max-width: 480px) {
-    nav ul li a {
-        padding: 0.8em 0.8em;
-    }
-
-    h1, h2, h3, h4 {
-        margin-left: 6%;
-        margin-right: 6%;
-    }
-
     form {
-        margin-left: 6%;
-        margin-right: 6%;
-    }
-
-    #toggleContentBtn {
-        margin-left: 6%;
-        margin-right: 6%;
-        width: 88%;
-    }
-
-    .table-container {
-        width: 88%;
-        margin-left: 6%;
-        margin-right: 6%;
+        width: 90%;
+        padding: 0 0.5em;
     }
 }

@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function() {
             data.forEach(materiaPrima => {
                 const fila = document.createElement("tr");
                 fila.innerHTML = `
-                    <td>${materiaPrima.materiaPrima}</td>
                     <td>${materiaPrima.tipo}</td>
                     <td>${materiaPrima.cantidadMP}</td>
                     <td>${materiaPrima.proveedor}</td>
@@ -160,7 +159,6 @@ document.addEventListener("DOMContentLoaded", function() {
     materiasPrimasForm.addEventListener("submit", function(e) {
         e.preventDefault(); // Previene el envío del formulario
 
-        const materiaPrima = document.getElementById("materiaPrima").value;
         const tipo = document.getElementById("tipo").value;
         const cantidadMP = document.getElementById("cantidadMP").value;
         const proveedor = document.getElementById("proveedor").value;
@@ -171,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function() {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: `materiaPrima=${encodeURIComponent(materiaPrima)}&tipo=${encodeURIComponent(tipo)}&cantidadMP=${encodeURIComponent(cantidadMP)}&proveedor=${encodeURIComponent(proveedor)}`
+            body: `tipo=${encodeURIComponent(tipo)}&cantidadMP=${encodeURIComponent(cantidadMP)}&proveedor=${encodeURIComponent(proveedor)}`
         })
         .then(response => response.text())
         .then(data => {
@@ -180,7 +178,6 @@ document.addEventListener("DOMContentLoaded", function() {
             // Añadir nueva fila a la tabla en la página principal
             const nuevaFilaPrincipal = document.createElement("tr");
             nuevaFilaPrincipal.innerHTML = `
-                <td>${materiaPrima}</td>
                 <td>${tipo}</td>
                 <td>${cantidadMP}</td>
                 <td>${proveedor}</td>
@@ -191,7 +188,6 @@ document.addEventListener("DOMContentLoaded", function() {
             // Añadir nueva fila a la tabla en la sección de gestión de materias primas
             const nuevaFilaSeccion = document.createElement("tr");
             nuevaFilaSeccion.innerHTML = `
-                <td>${materiaPrima}</td>
                 <td>${tipo}</td>
                 <td>${cantidadMP}</td>
                 <td>${proveedor}</td>

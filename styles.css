@@ -20,6 +20,58 @@ body {
     min-height: 100vh;
 }
 
+ /* Estilos del carrusel */
+ .carousel {
+    position: relative;
+    max-width: 800px; /* Establece un ancho máximo para el carrusel */
+    margin: auto;
+    border-radius: 12px; /* Bordes redondeados */
+    overflow: hidden; /* Oculta el contenido que sobresale */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+.carousel .slide {
+    display: none; /* Oculta todas las imágenes */
+    width: 100%;
+    opacity: 0; /* Comienza con opacidad 0 para el efecto de desvanecimiento */
+    transition: opacity 1s ease-in-out; /* Transición suave de opacidad */
+}
+
+.carousel .slide.active {
+    display: block; /* Muestra solo la imagen activa */
+    opacity: 1; /* Opacidad completa para la imagen activa */
+}
+
+/* Asegura que las imágenes se ajusten correctamente */
+.carousel img {
+    width: 100%; /* Ajusta el ancho al contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    max-height: 400px; /* Establece una altura máxima */
+    object-fit: cover; /* Cubre el área del contenedor sin distorsión */
+}
+
+/* Estilo de los botones de navegación del carrusel */
+.carousel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    cursor: pointer;
+    padding: 0.5em;
+    border-radius: 50%; /* Botones circulares */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.carousel button.prev {
+    left: 10px;
+}
+
+.carousel button.next {
+    right: 10px;
+}
+
 /* Estilos del contenedor principal */
 main {
     max-width: 1200px;
@@ -31,15 +83,13 @@ main {
     flex: 1;
 }
 
-/* Estilos para el encabezado */
 header {
-    background-color: var(--main-color);
+    background: linear-gradient(135deg, rgba(61, 90, 108, 0.8), rgba(43, 67, 85, 0.8)), 
+                url('img/iqbyugqh.png') no-repeat center center/cover;
     color: white;
-    padding: 1em 0;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    padding: 2em 0; 
 }
+
 
 /* Estilos para la barra de navegación */
 nav {

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StockManage</title>
     <link rel="stylesheet" href="styles.css">
+    
 </head>
 <body>
     <!-- Navigation Menu -->
@@ -27,6 +28,31 @@
     <!-- Home Page Content -->
     <section id="homeContent">
         <h1>Bienvenido a StockManage</h1>
+
+        <!-- Carrusel de Imágenes -->
+        <div class="carousel">
+            <div class="slide active">
+                <img src="https://images4.alphacoders.com/132/1323467.png" alt="Descripción de la imagen 1">
+            </div>
+            <div class="slide">
+                <img src="https://www.hdwallpapers.in/download/closeup_view_of_green_leaves_plants_with_water_drops_hd_green_aesthetic-HD.jpg" alt="Descripción de la imagen 2">
+            </div>
+            <div class="slide">
+                <img src="https://www.hdwallpapers.in/download/closeup_view_of_green_plant_leaves_hd_green_aesthetic-1920x1080.jpg" alt="Descripción de la imagen 3">
+            </div>
+            <div class="slide active">
+                <img src="https://4kwallpapers.com/images/wallpapers/green-leaves-plant-aesthetic-5k-1920x1080-3559.jpg" alt="Descripción de la imagen 1">
+            </div>
+            <div class="slide">
+                <img src="https://e0.pxfuel.com/wallpapers/809/286/desktop-wallpaper-green-leaf-plant-%C2%B7-stock-grey-and-green-aesthetic.jpg" alt="Descripción de la imagen 2">
+            </div>
+            <div class="slide">
+                <img src="https://picture.lk/files/preview/800x1427/11688655265fhhzmmshc0bmnblaxtjdo5c77tprjbfp0vtzkhbzwxqtkn4frvfrixu7axpgnccuizzhrnbcjesghaaeiyndt2gagkloi7wvweam.jpg" alt="Descripción de la imagen 3">
+            </div>
+            <button class="prev" onclick="changeSlide(-1)">❮</button>
+            <button class="next" onclick="changeSlide(1)">❯</button>
+        </div>
+
         <button id="toggleContentBtn">Mostrar más</button>
         <div id="extraContent" style="display: none;">
             <h3>Producción Reciente</h3>
@@ -67,50 +93,50 @@
         </div>
     </section>
 
-  <!-- Gestión de Producción -->
-<section id="gestionProduccion" style="display: none;">
-    <h2>Gestión de Producción</h2>
-    <form id="produccionForm">
-        <input type="text" id="producto" placeholder="Producto" required>
+    <!-- Gestión de Producción -->
+    <section id="gestionProduccion" style="display: none;">
+        <h2>Gestión de Producción</h2>
+        <form id="produccionForm">
+            <input type="text" id="producto" placeholder="Producto" required>
 
-        <!-- Agrupamos los campos en una fila -->
-        <div class="form-row">
-            <div class="input-group">
-                <input type="number" id="cantidad" placeholder="Cantidad" min="1" required>
+            <!-- Agrupamos los campos en una fila -->
+            <div class="form-row">
+                <div class="input-group">
+                    <input type="number" id="cantidad" placeholder="Cantidad" min="1" required>
+                </div>
+                <div class="input-group">
+                    <input type="number" id="cantidadDf" placeholder="Cantidad Defectuosa" min="0" required>
+                </div>
+                <div class="input-group">
+                    <input type="number" id="cantidadEf" placeholder="Cantidad Efectiva" min="1" required>
+                </div>
             </div>
-            <div class="input-group">
-                <input type="number" id="cantidadDf" placeholder="Cantidad Defectuosa" min="0" required>
-            </div>
-            <div class="input-group">
-                <input type="number" id="cantidadEf" placeholder="Cantidad Efectiva" min="1" required>
-            </div>
-        </div>
 
-        <input type="text" id="tamaño" placeholder="Tamaño" required>
-        <input type="text" id="empleado" placeholder="Empleado" required>
-        <input type="text" id="ci" placeholder="CI (sin puntos ni guiones)" pattern="[0-9]{8}" title="8 dígitos sin puntos ni guiones" required>
-        <input type="text" id="codigoMaquina" placeholder="Código de Máquina" required>
-        <button type="submit">Añadir Producción</button>
-    </form>
-    <table id="produccionTable">
-        <thead>
-            <tr>
-                <th>Producto</th>
-                <th>Cantidad</th>
-                <th>Cantidad Defectuosa</th>
-                <th>Cantidad Efectiva</th>
-                <th>Tamaño</th>
-                <th>Empleado</th>
-                <th>CI</th>
-                <th>Código Máquina</th>
-                <th>Fecha</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Producción se añadirá aquí -->
-        </tbody>
-    </table>
-</section>
+            <input type="text" id="tamaño" placeholder="Tamaño" required>
+            <input type="text" id="empleado" placeholder="Empleado" required>
+            <input type="text" id="ci" placeholder="CI (sin puntos ni guiones)" pattern="[0-9]{8}" title="8 dígitos sin puntos ni guiones" required>
+            <input type="text" id="codigoMaquina" placeholder="Código de Máquina" required>
+            <button type="submit">Añadir Producción</button>
+        </form>
+        <table id="produccionTable">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Cantidad Defectuosa</th>
+                    <th>Cantidad Efectiva</th>
+                    <th>Tamaño</th>
+                    <th>Empleado</th>
+                    <th>CI</th>
+                    <th>Código Máquina</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Producción se añadirá aquí -->
+            </tbody>
+        </table>
+    </section>
 
     <!-- Gestión de Materias Primas -->
     <section id="gestionMateriasPrimas" style="display: none;">
@@ -135,9 +161,11 @@
             </tbody>
         </table>
     </section>
+
     <footer>
         <p>&copy; 2024 ByteBay. Todos los derechos reservados.</p>
-    </footer>    
+    </footer>
+    
     <script src="main.js"></script>
 </body>
 </html>

@@ -96,7 +96,6 @@ document.addEventListener("DOMContentLoaded", function() {
         e.preventDefault(); // Previene el envío del formulario
 
         const producto = document.getElementById("producto").value;
-        const cantidad = document.getElementById("cantidad").value;
         const cantidadDf = document.getElementById("cantidadDf").value;
         const cantidadEf = document.getElementById("cantidadEf").value;
         const tamaño = document.getElementById("tamaño").value;
@@ -110,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: `producto=${encodeURIComponent(producto)}&cantidad=${encodeURIComponent(cantidad)}&cantidadDf=${encodeURIComponent(cantidadDf)}&cantidadEf=${encodeURIComponent(cantidadEf)}&tamaño=${encodeURIComponent(tamaño)}&empleado=${encodeURIComponent(empleado)}&ci=${encodeURIComponent(ci)}&codigoMaquina=${encodeURIComponent(codigoMaquina)}`
+            body: `producto=${encodeURIComponent(producto)}&cantidadDf=${encodeURIComponent(cantidadDf)}&cantidadEf=${encodeURIComponent(cantidadEf)}&tamaño=${encodeURIComponent(tamaño)}&empleado=${encodeURIComponent(empleado)}&ci=${encodeURIComponent(ci)}&codigoMaquina=${encodeURIComponent(codigoMaquina)}`
         })
         .then(response => response.text())
         .then(data => {
@@ -120,7 +119,6 @@ document.addEventListener("DOMContentLoaded", function() {
             const nuevaFilaPrincipal = document.createElement("tr");
             nuevaFilaPrincipal.innerHTML = `
                 <td>${producto}</td>
-                <td>${cantidad}</td>
                 <td>${cantidadDf}</td>
                 <td>${cantidadEf}</td>
                 <td>${tamaño}</td>
@@ -135,7 +133,6 @@ document.addEventListener("DOMContentLoaded", function() {
             const nuevaFilaSeccion = document.createElement("tr");
             nuevaFilaSeccion.innerHTML = `
                 <td>${producto}</td>
-                <td>${cantidad}</td>
                 <td>${cantidadDf}</td>
                 <td>${cantidadEf}</td>
                 <td>${tamaño}</td>

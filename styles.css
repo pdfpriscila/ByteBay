@@ -188,7 +188,7 @@ footer {
     width: 100%;
 }
 
-/* Estilos para formularios */
+/* Estilos generales para formularios */
 form {
     display: flex;
     flex-direction: column;
@@ -200,25 +200,35 @@ form {
     margin-right: auto;
 }
 
-/* Estilos para los campos de formulario */
+/* Estilos para todos los campos de formulario (incluyendo inputs, selects y buttons) */
 form input,
+form select,
 form button {
     width: 100%; 
-    padding: 0.8em;
-    margin-bottom: 1em;
-    border: 1px solid #dddddd;
-    border-radius: 8px;
-    box-sizing: border-box;
-    font-size: 1em;
+    padding: 0.8em; 
+    margin-bottom: 1em; 
+    border: 1px solid #dddddd; 
+    border-radius: 8px; 
+    box-sizing: border-box; 
+    font-size: 1em; 
+    transition: border-color 0.3s ease; /* Añadir transición para el foco */
+}
+
+/* Efecto de enfoque en todos los campos */
+form input:focus,
+form select:focus,
+form button:focus {
+    border-color: var(--main-color); /* Cambia el color del borde en enfoque */
+    outline: none; /* Elimina el borde por defecto del navegador */
 }
 
 /* Estilos para el botón dentro del formulario */
 form button {
     background-color: var(--main-color);
     color: white;
-    border: none;
+    border: none; /* Elimina el borde predeterminado */
     cursor: pointer;
-    padding: 0.8em 1em;
+    padding: 0.8em 1em; /* Mantén el padding uniforme */
     transition: background-color 0.3s ease;
 }
 
@@ -226,6 +236,18 @@ form button {
 form button:hover {
     background-color: var(--secondary-color);
 }
+
+/* Estilos específicos para el menú desplegable (select) */
+form select {
+    background-color: white; /* Color de fondo */
+    appearance: none; /* Elimina el estilo por defecto del navegador (puede no ser compatible en todos los navegadores) */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"><path fill="%23333" d="M7 10l5 5 5-5z"/></svg>'); /* Flecha personalizada */
+    background-repeat: no-repeat; /* Evitar repetición de la imagen */
+    background-position: right 10px center; /* Posiciona la flecha */
+    background-size: 12px; /* Tamaño de la flecha */
+    padding-right: 30px; /* Espacio a la derecha para la flecha */
+}
+
 
 /* Estilos para grupos de inputs */
 .form-row {

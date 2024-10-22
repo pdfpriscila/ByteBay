@@ -17,7 +17,7 @@
                 <span></span>
             </div>
             <ul id="navMenu">
-                <img src="img/bytebay-remove.png" id="logo" width="40px" height="40px">
+                <a href="#" id="inicioLink"><img src="img/bytebay-remove.png" id="logo" width="40px" height="40px"> </a>
                 <li><a href="#" id="inicioLink">Inicio</a></li>
                 <li><a href="#" id="gestionProduccionLink">Gestión de Producción</a></li>
                 <li><a href="#" id="gestionMateriasPrimasLink">Gestión de Materias Primas</a></li>
@@ -32,19 +32,19 @@
 <!-- Galería de Imágenes -->
 <div class="gallery">
     <div class="gallery-item">
-        <img src="https://lh3.googleusercontent.com/proxy/AIaFP4sSqXjXg5J1szhy9ftiW5frrOIwmCYJYjOEsOQuNHr0W6vfPeSL5jW1VuWax2fuYIMHi9XvlhZNjr_4LPPtjL-0Z0_cSxCIy3Y36oxaEg" alt="Descripción de la imagen 1">
+        <img src="img/chico66.jpg" alt="Cajon">
     </div>
     <div class="gallery-item">
-        <img src="https://lh3.googleusercontent.com/proxy/xZ6zqcvR8C9cliIfFkKoZpBHeroA6MOnLD_9aZX_RLjOuFpuH_coppsMKpKk0ZE2vAlnUqTcn_PUDLSG4MoLwhzb2-VNPfGdg4jeZhVO" alt="Descripción de la imagen 2">
+        <img src="img/comparacion44.jpg" alt="Cajon">
     </div>
     <div class="gallery-item">
-        <img src="https://lh3.googleusercontent.com/proxy/15vEJQFpW2yLPJyhTL5vTOixW-kkuj635ESQpVmMeYNAHrCVIj1xN_s30fbciMmacmq2ZO0uC5fpsHOgB6uX1AOAuMFFz4dq8XstCF3H" alt="Descripción de la imagen 3">
+        <img src="img/mediano22.jpg" alt="Cajon">
     </div>
     <div class="gallery-item">
-        <img src="https://lh3.googleusercontent.com/proxy/B6rzIH2ifo1damEFBBs3-15PLybOHy7N2yXb7dThn6NamVyKDaTFFHpSST0vNX14rPW5iEUDYMdtFtI6IxN4q269VNgT-Tc7l9u0Hw" alt="Descripción de la imagen 4">
+        <img src="img/mediano44.jpg" alt="Cajon">
     </div>
     <div class="gallery-item">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpKa1a21T3yaVf0UdKXUaA4L8VZPQ3Tl07vIOBShXSLkMvTbCz" alt="Descripción de la imagen 5">
+        <img src="img/images.jfif" alt="Cajon">
     </div>
 </div>
 
@@ -56,7 +56,6 @@
                 <thead>
                     <tr>
                         <th>Producto</th>
-                        <th>Cantidad</th>
                         <th>Cantidad Defectuosa</th>
                         <th>Cantidad Efectiva</th>
                         <th>Tamaño</th>
@@ -92,33 +91,42 @@
     <!-- Gestión de Producción -->
     <section id="gestionProduccion" style="display: none;">
         <h2>Gestión de Producción</h2>
-        <form id="produccionForm">
-            <input type="text" id="producto" placeholder="Producto" required>
+    <form id="produccionForm">
+        <select id="producto" required>
+            <option value="" disabled selected>Selecciona un producto</option>
+            <option value="termoplastico">Termoplásticos</option>
+            <option value="polietileno">Polietilenos</option>
+        <option value="polipropileno">Polipropilenos</option>
+      </select>
 
-            <!-- Agrupamos los campos en una fila -->
-            <div class="form-row">
-                <div class="input-group">
-                    <input type="number" id="cantidad" placeholder="Cantidad" min="1" required>
-                </div>
-                <div class="input-group">
-                    <input type="number" id="cantidadDf" placeholder="Cantidad Defectuosa" min="0" required>
-                </div>
-                <div class="input-group">
-                    <input type="number" id="cantidadEf" placeholder="Cantidad Efectiva" min="1" required>
-                </div>
-            </div>
+    <div class="form-row">
+        <div class="input-group">
+            <input type="number" id="cantidadDf" placeholder="Cantidad de cajones Defectuosa" min="0" required>
+        </div>
+        <div class="input-group">
+            <input type="number" id="cantidadEf" placeholder="Cantidad de cajones Efectiva" min="1" required>
+        </div>
+    </div>
 
-            <input type="text" id="tamaño" placeholder="Tamaño" required>
-            <input type="text" id="empleado" placeholder="Empleado" required>
-            <input type="text" id="ci" placeholder="CI (sin puntos ni guiones)" pattern="[0-9]{8}" title="8 dígitos sin puntos ni guiones" required>
-            <input type="text" id="codigoMaquina" placeholder="Código de Máquina" required>
-            <button type="submit">Añadir Producción</button>
-        </form>
+    <select id="tamaño" required>
+        <option value="" disabled selected>Selecciona un tamaño</option>
+        <option value="chico">Chico</option>
+        <option value="mediano">Mediano</option>
+        <option value="grande">Grande</option>
+    </select>
+
+    <select id="proveedor" required>
+        <option value="" disabled selected>Selecciona un proveedor</option>
+        <!-- Opciones se llenarán desde la base de datos -->
+    </select>
+
+    <button type="submit">Añadir Producción</button>
+</form>
+
         <table id="produccionTable">
             <thead>
                 <tr>
                     <th>Producto</th>
-                    <th>Cantidad</th>
                     <th>Cantidad Defectuosa</th>
                     <th>Cantidad Efectiva</th>
                     <th>Tamaño</th>
@@ -133,31 +141,42 @@
             </tbody>
         </table>
     </section>
+    
+   <!-- Gestión de Materias Primas -->
+<section id="gestionMateriasPrimas" style="display: none;">
+    <h2>Gestión de Materias Primas</h2>
+    <form id="materiasPrimasForm">
+        <select id="tipo" required>
+            <option value="" disabled selected>Selecciona un tipo</option>
+            <option value="termoplasticos">Termoplásticos</option>
+            <option value="polietilenos">Polietilenos</option>
+            <option value="polipropilenos">Polipropilenos</option>
+        </select>
 
-    <!-- Gestión de Materias Primas -->
-    <section id="gestionMateriasPrimas" style="display: none;">
-        <h2>Gestión de Materias Primas</h2>
-        <form id="materiasPrimasForm">
-            <input type="text" id="tipo" placeholder="Tipo" required>
-            <input type="number" id="cantidadMP" placeholder="Cantidad" required>
-            <input type="text" id="proveedor" placeholder="Proveedor" required>
-            <button type="submit">Añadir Materia Prima</button>
-        </form>
-        <table id="materiasPrimasTable">
-            <thead>
-                <tr>
-                    <th>Tipo</th>
-                    <th>Cantidad</th>
-                    <th>Proveedor</th>
-                    <th>Fecha</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Materias primas se añadirán aquí -->
-            </tbody>
-        </table>
-    </section>
+        <input type="number" id="cantidadMP" placeholder="Cantidad" required>
 
+        <select id="proveedorMateria" required>
+            <option value="" disabled selected>Selecciona un proveedor</option>
+            <!-- Aquí se llenará dinámicamente con JavaScript -->
+        </select>
+        
+        <button type="submit">Añadir Materia Prima</button>
+    </form>
+    <table id="materiasPrimasTable">
+        <thead>
+            <tr>
+                <th>Tipo</th>
+                <th>Cantidad</th>
+                <th>Proveedor</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Materias primas se añadirán aquí -->
+        </tbody>
+    </table>
+</section>
+    
     <footer>
         <p>&copy; 2024 ByteBay. Todos los derechos reservados.</p>
     </footer>
